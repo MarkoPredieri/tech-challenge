@@ -32,8 +32,6 @@ Leggi attentamente tutto il documento prima di iniziare.
 
 Installa il pannello di amministrazione **[Filament v5](https://filamentphp.com)** seguendo la [guida ufficiale all'installazione del Panel Builder](https://filamentphp.com/docs/5.x/introduction/installation).
 
-Al termine, il pannello sarà accessibile all'indirizzo `http://localhost:8000/admin`.
-
 **Riferimenti utili:**
 
 - [Documentazione Filament](https://filamentphp.com/docs)
