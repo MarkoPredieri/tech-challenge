@@ -103,7 +103,7 @@ Utilizzeremo **[NewsAPI](https://newsapi.org)**, un servizio gratuito (con regis
 
 1. Registrati su [https://newsapi.org](https://newsapi.org) e ottieni la tua API key gratuita.
 
-2. Nella pagina di **creazione** di un `Article` nel pannello Filament, aggiungi un'[Action](https://filamentphp.com/docs/panels/actions) (un pulsante) che, quando cliccato, chiami l'endpoint `GET top-headlines` di NewsAPI, scelga casualmente uno degli articoli restituiti e **pre-popoli automaticamente** i campi `title` e `body` del form con i dati ricevuti.
+2. Nella pagina di **creazione** di un `Article` nel pannello Filament, aggiungi un'Action(un pulsante) che, quando cliccato, chiami l'endpoint `GET top-headlines` di NewsAPI, scelga casualmente uno degli articoli restituiti e **pre-popoli automaticamente** i campi `title` e `body` del form con i dati ricevuti.
 
     L'utente potrà poi modificare i campi a piacimento e salvare normalmente il record.
 
