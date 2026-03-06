@@ -1,5 +1,7 @@
 # Billoo — Tech Challenge
 
+<p align="center"><img width="128" height="128" alt="Billoo" src="https://github.com/user-attachments/assets/8b4aabda-cc8a-4685-befa-03160d8fd331" /></p>
+
 Benvenuto/a! Questa è la repository di partenza per il nostro test tecnico. Contiene un'installazione _fresh_ di **Laravel 12** e tutto ciò che ti serve per cominciare.
 
 Leggi attentamente tutto il documento prima di iniziare.
