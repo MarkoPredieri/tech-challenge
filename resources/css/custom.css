@@ -1,0 +1,19 @@
+.offer-card {
+    width: 65%;
+    margin:auto;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    
+}
+.offer-card.best {
+    width: 80%;
+    border: 3px solid transparent;
+    background:
+        linear-gradient(white, white) padding-box,
+        linear-gradient(135deg, rgba(63, 94, 251, 1), rgba(252, 70, 107, 1)) border-box;
+}
+details[open] summary i {
+    transform: rotate(180deg);
+}

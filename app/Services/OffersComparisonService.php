@@ -23,10 +23,19 @@ class OffersComparisonService
         foreach ($offers as $offer) {
             $offer_estimated_cost = round($offer->unit_price * $bill->consumption, 2);
 
+            // COSTO ANNUALE STIMATO DELL'OFFERTA
+            $days = $bill->period_start->diffInDays($bill->period_end);
+            $daily_cost_offer = $offer_estimated_cost / $days;
+            $annual_cost_offer = round($daily_cost_offer * 365, 2);
+
+            // COSTO ANNUALE ATTUALE DELLA BILL
+            $annual_cost_bill = $bill->annual_cost;
+
             $results[] = [
                 'offer' => $offer,
                 'estimated_cost' => $offer_estimated_cost,
                 'saving' => round($bill->total_amount - $offer_estimated_cost, 2),
+                'annual_saving' => round($annual_cost_bill - $annual_cost_offer, 2),
             ];
         }
 

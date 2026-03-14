@@ -39,10 +39,42 @@ class Bill extends Model
         return $this->belongsTo(User::class);
     }
 
+    //FUNZIONE PER L'ESTRAZIONE DEL PREZZO UNITARIO DELLA BOLLETTA
     public function getUnitPriceAttribute(): float
     {
         if ($this->consumption == 0) return 0;
         
         return round($this->total_amount / $this->consumption, 6);
+    }
+
+    //FUNZIONE PER IL CALCOLO DEL COSTO ANNUALE DELLA BOLLETTA
+    public function getAnnualCostAttribute(): float
+    {
+        if (!$this->period_start || !$this->period_end) return 0;
+
+        $days = $this->period_start->diffInDays($this->period_end);
+
+        if ($days == 0) return 0;
+
+        $dailyCost = $this->total_amount / $days;
+
+        return round($dailyCost * 365, 2);
+    }
+
+    //FUNZIONE CHE CONTROLLA SE HO UN RISPARMIO DI OLTRE X€ CON LA QUALE MOSTRERO O MENO UN MESSAGGIO
+    public function hasSignificantSaving(): bool
+    {
+        $service = new \App\Services\OffersComparisonService();
+        $offers = $service->getBestOffer($this);
+
+        if (!$offers) return false;
+
+        $threshold = match ($this->supply_type) {
+            'electricity' => 50,
+            'gas'         => 100,
+            default       => 50,
+        };
+
+        return $offers[0]['annual_saving'] >= $threshold;
     }
 }

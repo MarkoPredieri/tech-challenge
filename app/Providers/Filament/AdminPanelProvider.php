@@ -33,6 +33,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->login()
             ->colors([
                 'primary' => Color::Amber,
@@ -76,6 +77,13 @@ class AdminPanelProvider extends PanelProvider
                             ]),
                     ]);
             })
+            ->renderHook(
+                'panels::body.end',
+                fn () => '
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+                    ' . \Illuminate\Support\Facades\Blade::render('@vite("resources/css/custom.css")') . '
+                ',
+            )
             ->authMiddleware([
                 Authenticate::class,
             ]);

@@ -15,8 +15,6 @@ class Offer extends Model
         'supply_type',
         'unit_price',
         'price_unit',
-        'fixed_monthly_fee',
-        'contract_duration_months',
         'is_active',
     ];
 }

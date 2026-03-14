@@ -17,20 +17,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         /*User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);*/
 
         //CREO 5 CATEGORIE
-        /*$categories = Category::factory(5)->create();
+        $categories = Category::factory(5)->create();
 
         //CREO 20 ARTICOLI ASSEGNATI CASUALMENTE ALLE CATEGORIE PRECEDENTEMENTE CREATE
         Article::factory(20)->create([
             'category_id' => fn() => fake()->randomElement($categories->pluck('id')->toArray())
-        ]);*/
+        ]);
 
         $this->call([
             BillSeeder::class,

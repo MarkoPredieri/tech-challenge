@@ -17,8 +17,6 @@ class OffersComparisonServiceTest extends TestCase
         $service = new OffersComparisonService();
         $results = $service->getBestOffer($bill);
 
-        dump($results);
-
         if ($results === null) {
             $this->markTestSkipped('Nessuna offerta conveniente trovata per questa bill');
             return;
