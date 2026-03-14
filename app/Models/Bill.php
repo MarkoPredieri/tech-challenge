@@ -27,9 +27,9 @@ class Bill extends Model
     {
         return [
             'period_start' => 'date',
-            'period_end'   => 'date',
-            'due_date'     => 'date',
-            'consumption'  => 'decimal:6',
+            'period_end' => 'date',
+            'due_date' => 'date',
+            'consumption' => 'decimal:6',
             'total_amount' => 'decimal:2',
         ];
     }
@@ -37,5 +37,12 @@ class Bill extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getUnitPriceAttribute(): float
+    {
+        if ($this->consumption == 0) return 0;
+        
+        return round($this->total_amount / $this->consumption, 6);
     }
 }
